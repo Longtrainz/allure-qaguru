@@ -29,7 +29,7 @@ public class SelenideTest {
         $(css(".header-search-input").as("Поиская строка")).submit();
 
         $(By.linkText(REPOSITORY)).click();
-        $(withText("Issus")).click();
+        $(withText("Issues")).click();
         $(withText("#" + ISSUE_NUMBER)).should(Condition.exist);
     }
 

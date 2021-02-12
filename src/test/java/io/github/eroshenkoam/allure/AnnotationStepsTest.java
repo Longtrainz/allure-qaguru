@@ -26,7 +26,7 @@ public class AnnotationStepsTest {
     @DisplayName("Наш любимый тест с аннотациями")
     @Feature("Issues")
     @Story("User should see issues in existing repository")
-    @Link(url = "https://testing.github.com", name = "Тестинг")
+    @Link(url = "https://github.com", name = "Тестинг")
     @Owner("eroshenkoam")
     @Severity(SeverityLevel.CRITICAL)
     public void searchForIssue() {
@@ -39,35 +39,35 @@ public class AnnotationStepsTest {
         steps.shouldSeeIssueWithNumber(ISSUE_NUMBER);
     }
 
-    public static class BaseSteps {
-
-        @Step("Открываем главную страницу")
-        public void openMainPage() {
-            open("https://testing.github.com");
-        }
-
-        @Step("Ищем репозиторий ${name}")
-        public void searchForRepository(final String name) {
-            $(".header-search-input").click();
-            $(".header-search-input").sendKeys(name);
-            $(".header-search-input").submit();
-        }
-
-        @Step("Переходим в репозиторий ${name}")
-        public void goToRepository(final String name) {
-            $(By.linkText(name)).click();
-        }
-
-        @Step("Переходим в раздел Issues")
-        public void goToIssues() {
-            $(withText("Issues")).click();
-        }
-
-        @Step("Проверяем наличие Issue с номером ${number}")
-        public void shouldSeeIssueWithNumber(final int number) {
-            $(withText("#" + ISSUE_NUMBER)).should(Condition.exist);
-        }
-
-    }
+//    public static class BaseSteps {
+//
+//        @Step("Открываем главную страницу")
+//        public void openMainPage() {
+//            open("https://github.com");
+//        }
+//
+//        @Step("Ищем репозиторий ${name}")
+//        public void searchForRepository(final String name) {
+//            $(".header-search-input").click();
+//            $(".header-search-input").sendKeys(name);
+//            $(".header-search-input").submit();
+//        }
+//
+//        @Step("Переходим в репозиторий ${name}")
+//        public void goToRepository(final String name) {
+//            $(By.linkText(name)).click();
+//        }
+//
+//        @Step("Переходим в раздел Issues")
+//        public void goToIssues() {
+//            $(withText("Issues")).click();
+//        }
+//
+//        @Step("Проверяем наличие Issue с номером ${number}")
+//        public void shouldSeeIssueWithNumber(final int number) {
+//            $(withText("#" + ISSUE_NUMBER)).should(Condition.exist);
+//        }
+//
+//    }
 
 }
